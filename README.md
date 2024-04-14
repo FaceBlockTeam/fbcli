@@ -1,15 +1,15 @@
-# qubic-cli
+# faceblock-cli
 
-Qubic Core client
+faceblock Core client
 
-An intermediate tool to communicate to qubic core node.
+An intermediate tool to communicate to faceblock core node.
 ```
-./qubic-cli [basic config] [Command] [command extra parameters]
+./faceblock-cli [basic config] [Command] [command extra parameters]
 -help print this message
 Basic config:
     -conf <file>
-        Specify configuration file. Relative paths will be prefixed by datadir location. See qubic.conf.example.
-        Notice: variables in qubic.conf will be overrided by values on parameters.
+        Specify configuration file. Relative paths will be prefixed by datadir location. See faceblock.conf.example.
+        Notice: variables in faceblock.conf will be overrided by values on parameters.
     -seed <SEED>
         55-char seed private key
     -nodeip <IPv4_ADDRESS>
@@ -23,11 +23,11 @@ Command:
     -showkeys
         Generating identity, pubkey key from private key. Private key must be passed either from params or configuration file.
     -getbalance <IDENTITY>
-        Balance of an identity (amount of qubic, number of in/out txs)
+        Balance of an identity (amount of faceblock, number of in/out txs)
     -getasset <IDENTITY>
         Print a list of assets of an identity
     -sendtoaddress <TARGET_IDENTITY> <AMOUNT>
-        Perform a standard transaction to sendData <AMOUNT> qubic to <TARGET_IDENTITY>. valid private key and node ip/port are required.
+        Perform a standard transaction to sendData <AMOUNT> faceblock to <TARGET_IDENTITY>. valid private key and node ip/port are required.
 
 [BLOCKCHAIN/PROTOCOL COMMAND]
     -gettickdata <TICK_NUMBER> <OUTPUT_FILE_NAME>
@@ -119,7 +119,7 @@ make;
 ### USAGE
 To get current tick of a node:
 
-`./qubic-cli -nodeip 127.0.0.1 -getcurrenttick`
+`./faceblock-cli -nodeip 127.0.0.1 -getcurrenttick`
 
 example return:
 ```
@@ -130,7 +130,7 @@ Number Of Misaligned Votes: 0
 ```
 
 Dump publickey, privatekey and identity:
-`./qubic-cli -seed aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -showkeys`
+`./faceblock-cli -seed aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -showkeys`
 
 example return:
 ```
@@ -142,28 +142,28 @@ Identity: BZBQFLLBNCXEMGLOBHUVFTLUPLVCPQUASSILFABOFFBCADQSSUPNWLZBQEXK
 
 Send coin:
 
-`./qubic-cli -nodeip 127.0.0.1 -seed aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -sendtoaddress AFZPUAIYVPNUYGJRQVLUKOPPVLHAZQTGLYAAUUNBXFTVTAMSBKQBLEIEPCVJ 1`
+`./faceblock-cli -nodeip 127.0.0.1 -seed aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -sendtoaddress AFZPUAIYVPNUYGJRQVLUKOPPVLHAZQTGLYAAUUNBXFTVTAMSBKQBLEIEPCVJ 1`
 
 Send special command to node:
 
-`./qubic-cli -nodeip 127.0.0.1 -seed aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -sendspecialcommand 123`
+`./faceblock-cli -nodeip 127.0.0.1 -seed aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa -sendspecialcommand 123`
 
 Dump tick data to a file:
 
-`./qubic-cli -nodeip 127.0.0.1 -gettickdata 10600000 10600000.bin`
+`./faceblock-cli -nodeip 127.0.0.1 -gettickdata 10600000 10600000.bin`
 
 Read tick data file:
 
-`./qubic-cli -readtickdata 10600000.bin`
+`./faceblock-cli -readtickdata 10600000.bin`
 
 Check tx on tick data file:
 
-`./qubic-cli -checktxonfile TX_HASH 10600000.bin`
+`./faceblock-cli -checktxonfile TX_HASH 10600000.bin`
 
 Check tx on online:
 
-`./qubic-cli -nodeip 127.0.0.1 -checktxontick 10600000 TX_HASH`
+`./faceblock-cli -nodeip 127.0.0.1 -checktxontick 10600000 TX_HASH`
 
-More information, please read the help. `./qubic-cli -help`
+More information, please read the help. `./faceblock-cli -help`
 
-#### NOTE: PROPER ACTIONS are needed if you use this tool as a replacement for qubic wallet. Please use it with caution.
+#### NOTE: PROPER ACTIONS are needed if you use this tool as a replacement for faceblock wallet. Please use it with caution.
